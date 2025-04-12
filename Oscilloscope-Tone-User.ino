@@ -27,7 +27,7 @@ int freq = 3400; // Default hardcoded value
 
 void setup() {
   // initialize freq:
-  tone(9,freq);
+  tone(tone_pin,freq);
   Serial.begin(9600);
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
@@ -42,8 +42,8 @@ void loop() {
   if (stringComplete) {
     Serial.println(inputString);
     freq = inputString.toInt();
-    //Serial.println(inputString);
-    tone(9,freq); 
+    //Serial.println(freq);
+    tone(tone_pin,freq); 
     // clear the string:
     inputString = "";
     stringComplete = false;
